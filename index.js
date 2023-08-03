@@ -1,4 +1,3 @@
-// index.js
 require('dotenv').config();
 
 const logger = require('./app/configs/logging').logger;
