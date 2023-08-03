@@ -7,6 +7,7 @@ const morgan = require('morgan');
 //const csurf = require('csurf');
 
 const adminRoutes = require('../routes/adminRoutes');
+const accountRoutes = require('../routes/accountRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -33,6 +34,6 @@ app.get('/api', async (req, res) => {
 });
 
 app.use('/v1/admin', adminRoutes);
-
+app.use('/v1/accounts', accountRoutes);
 
 module.exports = app;
