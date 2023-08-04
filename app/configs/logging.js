@@ -1,4 +1,5 @@
 let winston = require('winston');
+require('express-async-errors');
 
 module.exports.logger = winston.createLogger({
     level: 'info',

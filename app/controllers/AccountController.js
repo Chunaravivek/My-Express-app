@@ -7,17 +7,15 @@ class AccountController {
 
 			const { name } = req.body;
 			const existingAccount = await Account.findOne({ name });
-			if (existingAccount) {
-				return res.status(409).json({ message: 'account already exists' });
-			}
+			if (existingAccount) return res.status(409).json({ message: 'account already exists' });
 
 			const account = new Account(req.body);
 
 			account.status = 1;
 			await account.save();
-			res.status(201).json({ message: 'account registered successfully' });
+			res.status(201).json({ message: 'account save successfully' });
 		} catch (error) {
-			res.status(500).json({ message: 'Error occurred while registering account' });
+			res.status(500).json({ message: `Error occurred while save account: ${error.message}` });
 		}
 	}
 
@@ -30,7 +28,7 @@ class AccountController {
 			try {
 				var o_id = new ObjectId(id);
 			} catch (error) {
-				return res.status(400).json(error.message);
+				return res.status(400).json({ message: error.message });
 			}
 
 			const get_data = await Account.findOne({ _id: { $ne: o_id }, name: name });
@@ -51,14 +49,12 @@ class AccountController {
 	async delete(req, res) {
 		try {
 			const account = await Account.findById(req.params.id);
-			if (!account) {
-				return res.status(404).json({ message: 'Account not found' });
-			}
+			if (!account) return res.status(404).json({ message: 'Account not found' });
 
-			await account.remove();
+			await Account.findByIdAndDelete(req.params.id);
 			res.status(200).json({ message: 'Account deleted successfully' });
 		} catch (error) {
-			res.status(500).json({ message: 'Error occurred while deleting account' });
+			res.status(500).json({ message: `Error occurred while deleting account: ${error.message}` });
 		}
 	}
 
@@ -67,7 +63,7 @@ class AccountController {
             const account = await Account.findById(req.params.id);
             res.status(200).json(account);
         } catch (error) {
-            res.status(500).json({ message: 'Error occurred while fetching account' });
+            res.status(500).json({ message: `Error occurred while fetching account: ${error.message}` });
         }
     }
 

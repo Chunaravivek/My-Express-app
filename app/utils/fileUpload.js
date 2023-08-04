@@ -1,4 +1,3 @@
-// app/utils/fileUpload.js
 const multer = require('multer');
 const shortid = require('shortid');
 const path = require('path');
@@ -21,9 +20,9 @@ const upload = multer({
         if (extname && mimetype) {
             cb(null, true);
         } else {
-            cb('Error: Images only!');
+            cb(new Error('Error: Images only!'));
         }
     },
-}).single('avatar');
+});
 
 module.exports = upload;

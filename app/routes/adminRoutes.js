@@ -4,7 +4,7 @@ const upload = require('../utils/fileUpload');
 const AdminController = require('../controllers/AdminController');
 
 router.route('/register')
-.post(upload, AdminController.ValidateBody, AdminController.registerAdmin);
+.post(upload.single('avatar'), AdminController.ValidateBody, AdminController.registerAdmin);
 
 router.route('/login')
 .post(AdminController.ValidateLogin, AdminController.loginAdmin);

@@ -8,6 +8,7 @@ const morgan = require('morgan');
 
 const adminRoutes = require('../routes/adminRoutes');
 const accountRoutes = require('../routes/accountRoutes');
+const applicationRoutes = require('../routes/applicationRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,10 +31,11 @@ const errorMiddleware = require('../middlewares/error');
 app.use(errorMiddleware);
 
 app.get('/api', async (req, res) => {
-    res.status(200).send(`Welcome to S4apps Panel`);
+    res.status(200).send(`Welcome to Iflair Panel`);
 });
 
 app.use('/v1/admin', adminRoutes);
 app.use('/v1/accounts', accountRoutes);
+app.use('/v1/applications', applicationRoutes);
 
 module.exports = app;
