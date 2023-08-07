@@ -1,14 +1,23 @@
 {
   "name": "my-express-app2",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is default node project that can be use to start any new project with nodejs as backend.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chunaravivek/My-Express-app.git"
+  },
+  "author": "Vivek Chunara",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chunaravivek/My-Express-app/issues"
+  },
+  "homepage": "https://github.com/Chunaravivek/My-Express-app#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cachegoose": "^8.0.0",
