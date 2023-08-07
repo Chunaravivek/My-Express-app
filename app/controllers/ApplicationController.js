@@ -88,11 +88,20 @@ class ApplicationController extends BaseController {
 
     async getById(req, res) {
         try {
-            const application = await Application.findById(req.params.id);
+            const application = await Application.findById(req.params.id).populate('account_id');
             res.status(200).json(application);
         } catch (error) {
             res.status(500).json({ message: `Error occurred while fetching application: ${error.message}` });
         }
+    }
+
+    async getAll(req, res) {
+        try {
+			const documents = await Application.find().populate('account_id');
+			res.json(documents);
+		} catch (error) {
+			res.status(500).json({ message: `Error fetching documents: ${error.message}` });
+		}
     }
 
     async ValidateBody(req,res,next) {

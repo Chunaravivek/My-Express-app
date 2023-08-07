@@ -98,6 +98,7 @@ const Admin = mongoose.model('Admin', adminSchema);
 
 function ValidateAdmin(admin) {
     const schema = Joi.object({
+        id: Joi.string(),
         username: Joi.string().min(3).max(255).required(),
         first_name: Joi.string().min(3).max(255).required(),
         last_name: Joi.string().min(3).max(255).required(),
@@ -106,6 +107,7 @@ function ValidateAdmin(admin) {
         password: Joi.string().required(),
         name: Joi.string().min(3).max(255).required(),
         mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        avatar: Joi.string(),
     });
 
     return schema.validate(admin);

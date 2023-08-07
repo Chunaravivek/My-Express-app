@@ -7,5 +7,6 @@ router.post('/create', authMiddleware, AccountController.ValidateBody, AccountCo
 router.post('/update', authMiddleware, AccountController.ValidateBody, AccountController.update);
 router.get('/delete/:id', authMiddleware, AccountController.delete);
 router.get('/get_by_one/:id', authMiddleware, AccountController.getById);
+router.get('/get_all', authMiddleware, AccountController.getAll);
 
 module.exports = router;

@@ -6,6 +6,9 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 //const csurf = require('csurf');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../../public/api-docs/swagger');
+
 const adminRoutes = require('../routes/adminRoutes');
 const accountRoutes = require('../routes/accountRoutes');
 const applicationRoutes = require('../routes/applicationRoutes');
@@ -29,6 +32,8 @@ const errorMiddleware = require('../middlewares/error');
 
 // Error handling middleware
 app.use(errorMiddleware);
+
+app.use('/v2/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/api', async (req, res) => {
     res.status(200).send(`Welcome to Iflair Panel`);

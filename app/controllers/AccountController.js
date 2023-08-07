@@ -67,6 +67,15 @@ class AccountController {
         }
     }
 
+	async getAll(req, res) {
+        try {
+			const documents = await Account.find();
+			res.json(documents);
+		} catch (error) {
+			res.status(500).json({ message: `Error fetching documents: ${error.message}` });
+		}
+    }
+
 	async ValidateBody(req,res,next) {
 		const {error} = ValidateAccount(req.body);
 		if(error) return res.status(400).json(error.details[0].message);

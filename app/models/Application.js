@@ -17,7 +17,6 @@ const Applicationchema =
         account_id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Account',
-            autopopulate: { select: 'name' },
         },
         package_name: {
             type: String,
