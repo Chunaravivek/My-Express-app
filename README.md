@@ -47,9 +47,9 @@ List of things that should pre-installed on your pc :
 ### Installation
 
 ```
-git clone git@github.com:Chunaravivek/My-Express-app.git
+git clone https://github.com/Chunaravivek/My-Express-app.git
 cd My-Express-app
-npm install
+npm install --legacy-peer-deps
 npm start
 ```
 
