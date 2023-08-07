@@ -33,10 +33,10 @@ const errorMiddleware = require('../middlewares/error');
 // Error handling middleware
 app.use(errorMiddleware);
 
-app.use('/v2/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/v2/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/api', async (req, res) => {
-    res.status(200).send(`Welcome to Iflair Panel`);
+    res.status(200).send(`Welcome to Admin Panel`);
 });
 
 app.use('/v1/admin', adminRoutes);
