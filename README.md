@@ -72,7 +72,7 @@ Welcome to Admin Panel
 Once node server started you can visit below url to access api documentation :
 
 ```
-http://localhost:3000/v2/api-docs
+http://localhost:3000/api-docs
 ```
 
 ## Author
