@@ -79,7 +79,7 @@ adminSchema.methods.generateAuthToken = function () {
         email: this.email,
         name: this.name,
         mobile: this.mobile,
-    }, process.env.JWT_KEY, { expiresIn: "1h" });
+    }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
     return token;
 }
